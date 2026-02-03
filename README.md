@@ -25,7 +25,7 @@ Ce dépôt contient les éléments nécessaires au **téléchargement du serveur
 
 ## 🖥️ Plateforme supportée
 
-- Windows (serveur PC)
+- Windows (serveur PC de bureau)
 - Android (application mobile)
 
 ---
