@@ -101,3 +101,181 @@ body {
     font-size: 0.9rem;
     color: #666;
 }
+
+
+
+/*********Gemini Part*********/
+
+.download-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 400px;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    background-color: #2563eb; /* Un bleu professionnel */
+    color: white;
+    padding: 14px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-download .icon {
+    margin-right: 12px;
+}
+
+.disclaimer {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #64748b; /* Gris doux pour ne pas être agressif */
+    line-height: 1.4;
+}
+
+.disclaimer a {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+.disclaimer a:hover {
+    color: #1d4ed8;
+}
+
+.info-icon {
+    margin-right: 4px;
+}
+
+.file-integrity {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    font-family: monospace; /* Police de code pour la précision */
+}
+
+.hash-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+code {
+    background: #f1f5f9;
+    padding: 2px 4px;
+    border-radius: 4px;
+    word-break: break-all; /* Pour que le long hash ne casse pas ton design sur mobile */
+}
+
+/* Section Antivirus */
+.antivirus-section {
+    padding: 80px 20px;
+    background-color: #f8fafc; /* Gris très léger pour contraster avec le blanc */
+    border-top: 1px solid #e2e8f0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.badge {
+    background: #dbeafe;
+    color: #2563eb;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.antivirus-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .antivirus-grid { grid-template-columns: 1fr; }
+}
+
+.info-card, .steps-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.check-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.check-list li::before {
+    content: "✅";
+    margin-right: 10px;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.step-number {
+    background: #2563eb;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.vt-banner {
+    margin-top: 40px;
+    text-align: center;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #1e293b;
+}

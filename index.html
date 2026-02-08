@@ -2,6 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+	<meta name="description" content="Découvrez Synceo, une solution innovante pour vos transfert de fichier entre votre smartphone et votre pc de bureau.>
+	<meta property="og:title" content="Synceo - L'innovation par Essteam Online">
+	<meta property="og:description" content="Une plateforme fluide et performante pour gérer vos transfert de fichiers.">
+	<meta property="og:url" content="https://esshom.com">
+	<meta property="og:image" content="https://esshom.com">
     <title>Synceo – Serveur & Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="synceo.ico" type="image/x-icon">
@@ -12,6 +17,8 @@
 
 <header class="header">
     <h1>Synceo</h1>
+    <h2>Transeft Files Instantly from Desk to Mobile</h2>
+	<p></p>
     <p>Serveur PC & Manuel utilisateur</p>
 </header>
 
@@ -23,9 +30,26 @@
             Installez le serveur Synceo sur votre ordinateur afin de permettre
             le transfert sécurisé de fichiers avec votre application mobile.
         </p>
-        <a class="btn" href="synceoSetup.exe" download>
-            Télécharger Synceo Serveur
-        </a>
+		<div class="download-container">
+			<a class="btn" href="SynceoSetup.exe" download class="btn-download">
+				<svg class="icon" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="currentColor" d="M12 2L12 15M12 15L8 11M12 15L16 11M5 18H19V20H5V18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				Télécharger Synceo Installer
+			</a>
+			
+		</div>
+		<div>
+			<p class="disclaimer">
+				<span class="info-icon">💡</span> 
+				Note : Si votre antivirus affiche une alerte, il s'agit d'un "faux positif" dû à la nouveauté du fichier. 
+				<a href="#info-antivirus">En savoir plus</a>.
+			</p>
+		</div>
+		<p class="file-integrity">
+			<span class="hash-label">SHA-256 :</span> 
+			<code>444D42D18B7A7898043CD949214A39C43D34B6B3531FF4BCB6D4ED5753E2AAEC</code>
+		</p>
     </section>
 
     <section class="card">
@@ -35,9 +59,54 @@
             efficacement sur votre PC Windows et votre mobile Android.
         </p>
         <a class="btn secondary" href="Manuel_Utilisateur.pdf" target="_blank">
+			<svg class="icon" viewBox="0 0 24 24" width="24" height="24">
+				<path fill="currentColor" d="M12 2L12 15M12 15L8 11M12 15L16 11M5 18H19V20H5V18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
             Télécharger le manuel
         </a>
     </section>
+	<section id="info-antivirus" class="antivirus-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="badge">Sécurité & Transparence</span>
+            <h2>Pourquoi une alerte antivirus ?</h2>
+            <p class="subtitle">Votre sécurité est notre priorité. Voici tout ce qu'il faut savoir sur l'installation.</p>
+        </div>
+
+        <div class="antivirus-grid">
+            <div class="info-card">
+                <h3>🔍 L'origine de l'alerte</h3>
+                <p>Certains antivirus (Avast, Windows Defender) signalent les nouveaux logiciels indépendants comme "suspects" par défaut. Ce n'est pas parce qu'ils ont trouvé un virus, mais parce que le fichier n'a pas encore une <strong>"réputation"</strong> mondiale suffisante.</p>
+                <ul class="check-list">
+                    <li>Zéro malware, zéro spyware</li>
+                    <li>Code source consultable sur GitHub</li>
+                    <li>Installateur standard Inno Setup</li>
+                </ul>
+            </div>
+
+            <div class="steps-card">
+                <h3>🚀 Comment procéder ?</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p><strong>Ignorez l'avertissement :</strong> Cliquez sur "Informations complémentaires" ou "Détails".</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p><strong>Autorisez l'exécution :</strong> Choisissez "Exécuter quand même" ou "Restaurer le fichier".</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p><strong>Installation :</strong> Le serveur s'installera normalement sur votre PC.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vt-banner">
+            <p>Analyse en temps réel du fichier SynceoSetup.exe® : <strong>0/70 détections</strong> sur VirusTotal</p>
+            <a href="https://www.virustotal.com/gui/file/444d42d18b7a7898043cd949214a39c43d34b6b3531ff4bcb6d4ed5753e2aaec" target="_blank" class="btn-outline">Vérifier le rapport officiel</a>
+        </div>
+    </div>
+</section>
 
 </main>
 
