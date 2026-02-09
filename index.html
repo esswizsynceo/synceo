@@ -9,6 +9,7 @@
 	<meta property="og:image" content="https://esshom.com">
     <title>Synceo – Serveur & Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="script.js" defer></script>
     <link rel="icon" href="synceo.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="synceo_180x180.png">
     <link rel="stylesheet" href="style.css">
@@ -48,7 +49,8 @@
 		</div>
 		<p class="file-integrity">
 			<span class="hash-label">SHA-256 :</span> 
-			<code>35102B8CEFCC0F9D16D660B603765EE1BC31693BD70AF948A26A6CE87B7B9DBE</code>
+			<code id="sha-value">Chargement...</code>
+			<button onclick="copySHA()" id="copy-btn">Copier</button>
 		</p>
     </section>
 
