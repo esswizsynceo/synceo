@@ -34,8 +34,8 @@ jobs:
         run: |
           pyinstaller --clean --onefile --noconsole `
             --name "synceo" `
-            --add-data "icons;icons" `
-            --icon "icons/icon.ico" `
+            --add-data "_build/icons;icons" `
+            --icon "_build/icons/icon.ico" `
             "_build/synceo-release.py"
 
       # 2. Installation d'Inno Setup (Déjà présent sur les runners GitHub, mais on s'assure de son accès)
