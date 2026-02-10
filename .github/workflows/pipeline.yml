@@ -51,6 +51,21 @@ jobs:
         run: |
           $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.PFX_BASE64 }}")
           [IO.File]::WriteAllBytes("${{ github.workspace }}\cert.pfx", $pfx_cert_byte)
+          
+      - name: Ajouter SignTool au PATH
+        shell: powershell
+        run: |
+          $vstool = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $sdkpath = Get-ChildItem -Path "$vstool\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\mingw64\bin" # Alternative ou...
+          # La méthode la plus fiable sur GitHub Actions :
+          $signtool = Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\bin" -Filter signtool.exe -Recurse | Sort-Object -Descending | Select-Object -First 1
+          if ($signtool) {
+              $signtoolDir = $signtool.DirectoryName
+              Write-Host "SignTool trouvé dans : $signtoolDir"
+              echo "$signtoolDir" >> $env:GITHUB_PATH
+          } else {
+              Write-Error "SignTool introuvable sur le runner."
+          }
 
       - name: Signer l'installeur
         shell: powershell
