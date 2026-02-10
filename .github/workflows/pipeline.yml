@@ -24,7 +24,6 @@ jobs:
           pip install zeroconf
           pip install waitress
           pip install pystray
-          pip install threading
 
       - name: Build de l'application (.exe)
         run: |
