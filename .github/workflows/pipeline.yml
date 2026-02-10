@@ -77,7 +77,7 @@ jobs:
       - name: Générer le fichier sha256.txt
         shell: powershell
         run: |
-          $setupPath = "${{ github.workspace }}\Output\SynceoSetup.exe"
+          $setupPath = "${{ github.workspace }}\_build\Output\SynceoSetup.exe"
           $hash = (Get-FileHash $setupPath -Algorithm SHA256).Hash
           "SHA256 pour SynceoSetup.exe : $hash" | Out-File "sha256.txt"
 
