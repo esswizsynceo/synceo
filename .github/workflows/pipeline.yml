@@ -67,25 +67,36 @@ jobs:
               Write-Error "SignTool introuvable sur le runner."
           }
 
-      - name: Signer l'installeur
-        shell: powershell
-        run: |
-          # SignTool est déjà dans le PATH des runners Windows de GitHub
-          signtool sign /f "${{ github.workspace }}\cert.pfx" /p "${{ secrets.PFX_PASSWORD }}" /fd SHA256 /t http://timestamp.digicert.com "${{ github.workspace }}\_build\Output\SynceoSetup.exe"
-
       # 4. Génération du SHA256
-      - name: Générer le fichier sha256.txt
+     - name: Signer et Calculer le Hash
         shell: powershell
         run: |
           $setupPath = "${{ github.workspace }}\_build\Output\SynceoSetup.exe"
+          
+          # 1. Signature
+          signtool sign /f "${{ github.workspace }}\cert.pfx" /p "${{ secrets.PFX_PASSWORD }}" /fd SHA256 /t http://timestamp.digicert.com $setupPath
+          
+          # 2. Calcul du SHA256 (écrase le fichier à la racine pour GitHub Pages)
           $hash = (Get-FileHash $setupPath -Algorithm SHA256).Hash
-          "SHA256 pour SynceoSetup.exe : $hash" | Out-File "sha256.txt"
+          "$hash  SynceoSetup.exe" | Out-File "${{ github.workspace }}\sha256.txt" -Encoding utf8
 
       # 5. Publication des artefacts (Téléchargeables dans l'onglet Actions)
-      - name: Upload des résultats
-        uses: actions/upload-artifact@v4
+      - name: 8. Mise à jour de sha256.txt sur GitHub Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sha256.txt
+          git commit -m "Update SHA256: v${{ github.run_number }}" || echo "Aucun changement"
+          git push
+
+      - name: 9. Création de la Release (Se déclenche seulement si tout précède est OK)
+        uses: softprops/action-gh-release@v2
         with:
-          name: Synceo-Server-Package
-          path: |
-            Output/SynceoSetup.exe
+          tag_name: build-${{ github.run_number }}
+          name: Synceo Server Build ${{ github.run_number }}
+          body: "Mise à jour automatique. Vérifiez le fichier sha256.txt pour l'intégrité."
+          files: |
+            _build/Output/SynceoSetup.exe
             sha256.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
