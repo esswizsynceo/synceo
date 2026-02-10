@@ -27,7 +27,7 @@ jobs:
       - name: Debug - Vérifier les fichiers
         run: |
           dir _build
-          dir icons
+          dir _build/icons
         shell: powershell
         
       - name: Build de l'application (.exe)
