@@ -70,15 +70,8 @@ jobs:
       - name: Signer l'installeur
         shell: powershell
         run: |
-          $setupFile = Get-ChildItem -Path ${{ github.workspace }} -Filter "SynceoSetup.exe" -Recurse | Select-Object -ExpandProperty FullName
-          
-          if ($setupFile) {
-              Write-Host "Fichier trouvé ici : $setupFile"
-              signtool sign /f "${{ github.workspace }}\cert.pfx" /p "${{ secrets.PFX_PASSWORD }}" /fd SHA256 /t http://timestamp.digicert.com "$setupFile"
-          } else {
-              Write-Error "Impossible de trouver SynceoSetup.exe dans le répertoire de travail."
-              exit 1
-          }
+          # SignTool est déjà dans le PATH des runners Windows de GitHub
+          signtool sign /f "${{ github.workspace }}\cert.pfx" /p "${{ secrets.PFX_PASSWORD }}" /fd SHA256 /t http://timestamp.digicert.com "${{ github.workspace }}\_build\Output\SynceoSetup.exe"
 
       # 4. Génération du SHA256
       - name: Générer le fichier sha256.txt
