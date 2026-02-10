@@ -23,7 +23,7 @@ jobs:
           pip install pyinstaller
           pip install zeroconf
           pip install waitress
-          pip install psytrail
+          pip install pystrail
 
       - name: Build de l'application (.exe)
         run: |
