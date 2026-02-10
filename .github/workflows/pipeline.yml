@@ -24,10 +24,19 @@ jobs:
           pip install zeroconf
           pip install waitress
           pip install pystray
-
+      - name: Debug - Vérifier les fichiers
+        run: |
+          dir _build
+          dir icons
+        shell: powershell
+        
       - name: Build de l'application (.exe)
         run: |
-          pyinstaller --clean --onefile --noconsole --name "synceo" --add-data "icons;icons" --icon "icons/icon.ico"  "_build/synceo-release.py"
+          pyinstaller --clean --onefile --noconsole `
+            --name "synceo" `
+            --add-data "icons;icons" `
+            --icon "icons/icon.ico" `
+            "_build/synceo-release.py"
 
       # 2. Installation d'Inno Setup (Déjà présent sur les runners GitHub, mais on s'assure de son accès)
       - name: Compiler l'installeur avec Inno Setup
